@@ -12,3 +12,4 @@
 - [x] 🎰 [React 19](https://react.dev)
 - [x] 💡 [TypeScript](https://typescriptlang.org)
 - [x] 🎨 [Tailwind CSS](https://tailwindcss.com)
+- [x] 🧩 [Prismic (CMS)](https://prismic.io/)
