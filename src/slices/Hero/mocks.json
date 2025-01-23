@@ -2,7 +2,39 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sit non veniam in non. Tempor eu laboris adipisicing id culpa incididunt nulla consequat magna ex irure eu sunt aliquip."
+						}
+					}
+				]
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aliqua do et deserunt culpa laborum pariatur quis. Deserunt quis nostrud minim eu proident labore officia eiusmod."
+						}
+					}
+				]
+			},
+			"button": {
+				"__TYPE__": "LinkContent",
+				"key": "1229d1aa-ea57-4203-986f-cbb336747e88",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "railroad"
+				}
+			}
+		},
 		"items": []
 	}
 ]

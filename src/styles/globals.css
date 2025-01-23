@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-texture {
+  background-size: 720px 460px;
+  background-repeat: repeat;
+  background-position: center;
+  /* MARK: 这里不适应 background 复合属性是因为背景颜色会被覆盖 */
+  background-image: url('/bg-texture.webp');
+}
+
+.button-cutout {
+  position: relative;
+  filter: drop-shadow(0 1px 0 #000) drop-shadow(-1px 0 0 #000) drop-shadow(1px 0 0 #000) drop-shadow(0 -1px 0 #000)
+    drop-shadow(8px 8px 0 #000);
+
+  &:hover {
+    filter: drop-shadow(0 1px 0 #000) drop-shadow(-1px 0 0 #000) drop-shadow(1px 0 0 #000) drop-shadow(0 -1px 0 #000)
+      drop-shadow(2px 2px 0 #000);
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: calc(100% - 1px);
+    content: '';
+    background: inherit;
+    width: 1rem;
+    height: 100%;
+    clip-path: polygon(23% 19%, 0 0, 100% 0, 100% 100%, 0 100%, 29% 79%, 9% 80%, 0 33%);
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: calc(100% - 1px);
+    content: '';
+    background: inherit;
+    width: 1rem;
+    height: 100%;
+    clip-path: polygon(100% 0, 74% 28%, 100% 29%, 100% 70%, 84% 78%, 100% 100%, 0 100%, 0 0);
+  }
+}
