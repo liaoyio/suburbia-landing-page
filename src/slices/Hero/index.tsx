@@ -1,5 +1,6 @@
 import type { Content } from '@prismicio/client'
 import type { JSX } from 'react'
+
 import { Bounded } from '@/components/Bounded'
 import { ButtonLink } from '@/components/ButtonLink'
 import { Heading } from '@/components/Heading'

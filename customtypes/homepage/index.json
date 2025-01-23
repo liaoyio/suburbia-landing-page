@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "product_grid": {
+              "type": "SharedSlice"
+            },
             "hero": {
               "type": "SharedSlice"
             }
