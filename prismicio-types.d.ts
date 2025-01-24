@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | VideoBlockSlice
   | TextAndImageSlice
   | ProductGridSlice
   | HeroSlice;
@@ -547,6 +548,51 @@ export type TextAndImageSlice = prismic.SharedSlice<
   TextAndImageSliceVariation
 >;
 
+/**
+ * Primary content in *VideoBlock → Default → Primary*
+ */
+export interface VideoBlockSliceDefaultPrimary {
+  /**
+   * Youtube Video ID field in *VideoBlock → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_block.default.primary.youtube_video_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  youtube_video_id: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for VideoBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoBlockSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<VideoBlockSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *VideoBlock*
+ */
+type VideoBlockSliceVariation = VideoBlockSliceDefault;
+
+/**
+ * VideoBlock Shared Slice
+ *
+ * - **API ID**: `video_block`
+ * - **Description**: VideoBlock
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoBlockSlice = prismic.SharedSlice<
+  "video_block",
+  VideoBlockSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -592,6 +638,10 @@ declare module "@prismicio/client" {
       TextAndImageSliceVariation,
       TextAndImageSliceDefault,
       TextAndImageSliceImageOnLeft,
+      VideoBlockSlice,
+      VideoBlockSliceDefaultPrimary,
+      VideoBlockSliceVariation,
+      VideoBlockSliceDefault,
     };
   }
 }
