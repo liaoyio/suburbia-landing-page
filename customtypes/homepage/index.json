@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "team_grid": {
+              "type": "SharedSlice"
+            },
             "video_block": {
               "type": "SharedSlice"
             },
