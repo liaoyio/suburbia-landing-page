@@ -1,19 +1,23 @@
-import { Bounded } from "@/components/Bounded";
-import { Heading } from "@/components/Heading";
-import { createClient } from "@/prismicio";
-import { Content } from "@prismicio/client";
-import { PrismicText, SliceComponentProps } from "@prismicio/react";
-import { Fragment, JSX } from "react";
-import { Skater } from "./Skater";
-import { SlideIn } from "@/components/SlideIn";
+import type { Content } from '@prismicio/client'
+import type { SliceComponentProps } from '@prismicio/react'
+import type { JSX } from 'react'
+
+import { Bounded } from '@/components/Bounded'
+import { Heading } from '@/components/Heading'
+import { SlideIn } from '@/components/SlideIn'
+import { createClient } from '@/prismicio'
+
+import { PrismicText } from '@prismicio/react'
+import { Fragment } from 'react'
+import { Skater } from './Skater'
 
 /** Props for `TeamGrid`. */
-export type TeamGridProps = SliceComponentProps<Content.TeamGridSlice>;
+export type TeamGridProps = SliceComponentProps<Content.TeamGridSlice>
 
 /** Component for "TeamGrid" Slices. */
-export default async function TeamGrid ({ slice }: TeamGridProps): Promise<JSX.Element>  {
-  const client = createClient();
-  const skaters = await client.getAllByType("skater");
+export default async function TeamGrid({ slice }: TeamGridProps): Promise<JSX.Element> {
+  const client = createClient()
+  const skaters = await client.getAllByType('skater')
   return (
     <Bounded
       data-slice-type={slice.slice_type}
@@ -38,5 +42,5 @@ export default async function TeamGrid ({ slice }: TeamGridProps): Promise<JSX.E
         ))}
       </div>
     </Bounded>
-  );
+  )
 }

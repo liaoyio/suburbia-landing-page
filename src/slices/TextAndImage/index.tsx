@@ -1,17 +1,17 @@
-import { PrismicRichText, PrismicText } from '@prismicio/react'
-import clsx from 'clsx'
+import type { Content } from '@prismicio/client'
+import type { SliceComponentProps } from '@prismicio/react'
 
+import type { JSX } from 'react'
 import { Bounded } from '@/components/Bounded'
 import { ButtonLink } from '@/components/ButtonLink'
 import { Heading } from '@/components/Heading'
+import { SlideIn } from '@/components/SlideIn'
+
+import { PrismicRichText, PrismicText } from '@prismicio/react'
+import clsx from 'clsx'
 import { ParallaxImage } from './ParallaxImage'
-import { SlideIn } from "@/components/SlideIn";
 
-import type { Content } from '@prismicio/client'
-import type { SliceComponentProps } from '@prismicio/react'
-import type { JSX } from 'react'
-
-/*TODO： 继承 CSSProperties，用于修复 react 中的 style 添加变量属性 TS 类型错误问题 */
+/* TODO： 继承 CSSProperties，用于修复 react 中的 style 添加变量属性 TS 类型错误问题 */
 declare module 'react' {
   interface CSSProperties {
     '--index'?: number
@@ -57,7 +57,7 @@ export default function TextAndImage({ slice, index }: TextAndImageProps): JSX.E
           <SlideIn>
             <ButtonLink
               field={slice.primary.button}
-              color={theme === "Lime" ? "orange" : "lime"}
+              color={theme === 'Lime' ? 'orange' : 'lime'}
             >
               {slice.primary.button.text}
             </ButtonLink>

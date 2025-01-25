@@ -1,14 +1,16 @@
+import type { Content } from '@prismicio/client'
+import type { SliceComponentProps } from '@prismicio/react'
 import type { Metadata } from 'next'
+
 import { createClient } from '@/prismicio'
 import { components } from '@/slices'
-
-import { asImageSrc, Content, isFilled } from '@prismicio/client'
-import { SliceComponentProps, SliceZone } from '@prismicio/react'
+import { asImageSrc, isFilled } from '@prismicio/client'
+import { SliceZone } from '@prismicio/react'
 
 export default async function Page() {
-  const client = createClient();
-  const page = await client.getSingle("homepage");
-  const slices = bundleTextAndImageSlices(page.data.slices);
+  const client = createClient()
+  const page = await client.getSingle('homepage')
+  const slices = bundleTextAndImageSlices(page.data.slices)
 
   return (
     <SliceZone
@@ -23,7 +25,7 @@ export default async function Page() {
         ),
       }}
     />
-  );
+  )
 }
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -47,38 +49,38 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-
-type TextAndImageBundleSlice = {
-  id: string;
-  slice_type: "text_and_image_bundle";
-  slices: Content.TextAndImageSlice[];
-};
+interface TextAndImageBundleSlice {
+  id: string
+  slice_type: 'text_and_image_bundle'
+  slices: Content.TextAndImageSlice[]
+}
 
 /** 将 TextAndImage 切片合并在一起 */
 function bundleTextAndImageSlices(
-  slices: Content.HomepageDocumentDataSlicesSlice[]
+  slices: Content.HomepageDocumentDataSlicesSlice[],
 ) {
   const res: (
     | Content.HomepageDocumentDataSlicesSlice
     | TextAndImageBundleSlice
-  )[] = [];
+  )[] = []
 
   for (const slice of slices) {
-    if (slice.slice_type !== "text_and_image") {
-      res.push(slice);
-      continue;
+    if (slice.slice_type !== 'text_and_image') {
+      res.push(slice)
+      continue
     }
 
-    const bundle = res.at(-1);
-    if (bundle?.slice_type === "text_and_image_bundle") {
-      bundle.slices.push(slice);
-    } else {
+    const bundle = res.at(-1)
+    if (bundle?.slice_type === 'text_and_image_bundle') {
+      bundle.slices.push(slice)
+    }
+    else {
       res.push({
         id: `${slice.id}-bundle`,
-        slice_type: "text_and_image_bundle",
+        slice_type: 'text_and_image_bundle',
         slices: [slice],
-      });
+      })
     }
   }
-  return res;
+  return res
 }

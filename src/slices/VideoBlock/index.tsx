@@ -1,19 +1,20 @@
-import { Bounded } from "@/components/Bounded";
-import { Content, isFilled } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
-import { LazyYouTubePlayer } from "./LazyYouTubePlayer";
-import clsx from "clsx";
-import Image from "next/image";
-import { JSX } from "react";
+import type { Content } from '@prismicio/client'
+import type { SliceComponentProps } from '@prismicio/react'
+import type { JSX } from 'react'
+import { Bounded } from '@/components/Bounded'
+import { isFilled } from '@prismicio/client'
+import clsx from 'clsx'
+import Image from 'next/image'
+import { LazyYouTubePlayer } from './LazyYouTubePlayer'
 
-const MASK_CLASSES =
-  "[mask-image:url(/video-mask.png)] [mask-mode:alpha] [mask-position:center_center] [mask-repeat:no-repeat] [mask-size:100%_auto]";
+const MASK_CLASSES
+  = '[mask-image:url(/video-mask.png)] [mask-mode:alpha] [mask-position:center_center] [mask-repeat:no-repeat] [mask-size:100%_auto]'
 
 /** Props for `VideoBlock`. */
-export type VideoBlockProps = SliceComponentProps<Content.VideoBlockSlice>;
+export type VideoBlockProps = SliceComponentProps<Content.VideoBlockSlice>
 
 /** Component for "VideoBlock" Slices. */
-export default function VideoBlock({ slice }: VideoBlockProps): JSX.Element  {
+export default function VideoBlock({ slice }: VideoBlockProps): JSX.Element {
   return (
     <Bounded
       data-slice-type={slice.slice_type}
@@ -26,26 +27,28 @@ export default function VideoBlock({ slice }: VideoBlockProps): JSX.Element  {
         <div
           className={clsx(
             MASK_CLASSES,
-            "bg-brand-lime absolute inset-0 ~translate-x-2/3 ~translate-y-2/3"
+            'bg-brand-lime absolute inset-0 ~translate-x-2/3 ~translate-y-2/3',
           )}
         />
         <div
           className={clsx(
             MASK_CLASSES,
-            "bg-white absolute inset-0 ~translate-x-1/3 ~translate-y-1/2"
+            'bg-white absolute inset-0 ~translate-x-1/3 ~translate-y-1/2',
           )}
         />
         <div
           className={clsx(
             MASK_CLASSES,
-            "bg-white absolute inset-0 ~translate-x-1/2 ~-translate-y-1/3"
+            'bg-white absolute inset-0 ~translate-x-1/2 ~-translate-y-1/3',
           )}
         />
         {/* Video */}
-        <div className={clsx(MASK_CLASSES, "relative h-full")}>
-          {isFilled.keyText(slice.primary.youtube_video_id) ? (
-            <LazyYouTubePlayer youTubeID={slice.primary.youtube_video_id} />
-          ) : null}
+        <div className={clsx(MASK_CLASSES, 'relative h-full')}>
+          {isFilled.keyText(slice.primary.youtube_video_id)
+            ? (
+                <LazyYouTubePlayer youTubeID={slice.primary.youtube_video_id} />
+              )
+            : null}
           {/* 叠加纹理效果 */}
           <Image
             src="/image-texture.png"
@@ -57,6 +60,5 @@ export default function VideoBlock({ slice }: VideoBlockProps): JSX.Element  {
         </div>
       </div>
     </Bounded>
-  );
+  )
 };
-

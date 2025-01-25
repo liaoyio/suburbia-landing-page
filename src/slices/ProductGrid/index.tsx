@@ -4,10 +4,10 @@ import type { JSX } from 'react'
 
 import { Bounded } from '@/components/Bounded'
 import { Heading } from '@/components/Heading'
+import { SlideIn } from '@/components/SlideIn'
 import { isFilled } from '@prismicio/client'
 import { PrismicRichText, PrismicText } from '@prismicio/react'
 import { SkateboardProduct } from './SkateboardProduct'
-import { SlideIn } from "@/components/SlideIn";
 
 /** Props for `ProductGrid`. */
 export type ProductGridProps = SliceComponentProps<Content.ProductGridSlice>
@@ -26,7 +26,6 @@ export default function ProductGrid({ slice }: ProductGridProps): JSX.Element {
           <PrismicText field={slice.primary.heading} />
         </Heading>
       </SlideIn>
-
 
       <SlideIn>
         <div className="text-center ~mb-6/10">

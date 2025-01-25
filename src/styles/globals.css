@@ -43,10 +43,9 @@
   }
 }
 
-
 .stack-layout {
   display: grid;
-  grid-template-areas: "stack";
+  grid-template-areas: 'stack';
   place-items: center;
 }
 

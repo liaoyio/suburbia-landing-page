@@ -1,24 +1,24 @@
-import { ButtonLink } from "@/components/ButtonLink";
-import { Content } from "@prismicio/client";
-import { PrismicNextImage } from "@prismicio/next";
+import type { Content } from '@prismicio/client'
+import { ButtonLink } from '@/components/ButtonLink'
 import { SkaterScribble } from '@/components/icons'
-import clsx from "clsx";
+import { PrismicNextImage } from '@prismicio/next'
+import clsx from 'clsx'
 
-type Props = {
-  skater: Content.SkaterDocument;
-  index: number;
-};
+interface Props {
+  skater: Content.SkaterDocument
+  index: number
+}
 
 export function Skater({ skater, index }: Props) {
   const colors = [
-    "text-brand-blue",
-    "text-brand-lime",
-    "text-brand-orange",
-    "text-brand-pink",
-    "text-brand-purple",
-  ];
+    'text-brand-blue',
+    'text-brand-lime',
+    'text-brand-orange',
+    'text-brand-pink',
+    'text-brand-purple',
+  ]
 
-  const scribbleColor = colors[index];
+  const scribbleColor = colors[index]
 
   return (
     <div className="skater group relative flex flex-col items-center gap-4">
@@ -30,7 +30,7 @@ export function Skater({ skater, index }: Props) {
           alt=""
           className="scale-110 transform transition-all duration-1000 ease-in-out group-hover:scale-100 group-hover:brightness-75 group-hover:saturate-[.8]"
         />
-        <SkaterScribble className={clsx("relative", scribbleColor)} />
+        <SkaterScribble className={clsx('relative', scribbleColor)} />
         <PrismicNextImage
           field={skater.data.photo_foreground}
           width={500}
@@ -47,5 +47,5 @@ export function Skater({ skater, index }: Props) {
         Build their board
       </ButtonLink>
     </div>
-  );
+  )
 }

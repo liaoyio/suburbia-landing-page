@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
+import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { SVGFilters } from '@/components/SVGFilters'
 // TODO 自定义字体
 // See: https://nextjs.org/docs/app/building-your-application/optimizing/fonts#local-fonts
 import { Bowlby_One_SC, DM_Mono } from 'next/font/google'
 import '@/styles/globals.css'
-import { Footer } from '@/components/Footer'
 
 const bowlby = Bowlby_One_SC({
   subsets: ['latin'],
