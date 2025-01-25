@@ -1,18 +1,36 @@
-import type { Content } from '@prismicio/client'
 import type { JSX } from 'react'
-
 import { Bounded } from '@/components/Bounded'
+
 import { ButtonLink } from '@/components/ButtonLink'
 import { Heading } from '@/components/Heading'
 import { TallLogo, WideLogo } from '@/components/icons'
+import { asImageSrc, type Content } from '@prismicio/client'
 import { PrismicRichText, PrismicText, type SliceComponentProps } from '@prismicio/react'
 import clsx from 'clsx'
+import { InteractiveSkateboard } from './InteractiveSkateboard'
+
+const DEFAULT_DECK_TEXTURE = '/skateboard/Deck.webp'
+const DEFAULT_WHEEL_TEXTURE = '/skateboard/SkateWheel1.png'
 
 /** Props for `Hero` */
 export type HeroProps = SliceComponentProps<Content.HeroSlice>
 
 /** Component for "Hero" Slices. */
 export default function Hero({ slice }: HeroProps): JSX.Element {
+  const {
+    skateboard_deck_texture,
+    skateboard_wheel_texture,
+    skateboard_truck_color,
+    skateboard_bolt_color,
+  } = slice.primary
+
+  const state = {
+    deckTextureURL: asImageSrc(skateboard_deck_texture) || DEFAULT_DECK_TEXTURE, // 甲板纹理
+    wheelTextureURL: asImageSrc(skateboard_wheel_texture) || DEFAULT_WHEEL_TEXTURE, // 滑轮
+    truckColor: skateboard_truck_color || '#6F6E6A',
+    boltColor: skateboard_bolt_color || '#6F6E6A',
+  }
+
   return (
     <Bounded
       data-slice-type={slice.slice_type}
@@ -48,6 +66,7 @@ export default function Hero({ slice }: HeroProps): JSX.Element {
           </ButtonLink>
         </div>
       </div>
+      <InteractiveSkateboard {...state} />
     </Bounded>
   )
 }

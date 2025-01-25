@@ -40,6 +40,36 @@
             "allowText": true,
             "repeat": false
           }
+        },
+        "skateboard_deck_texture": {
+          "type": "Image",
+          "config": {
+            "label": "Skateboard Deck Toxture",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "skateboard_wheel_texture": {
+          "type": "Image",
+          "config": {
+            "label": "Skateboard Wheel Texture",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "skateboard_truck_color": {
+          "type": "Color",
+          "config": {
+            "label": "Skateboard Truck Color",
+            "placeholder": ""
+          }
+        },
+        "skateboard_bolt_color": {
+          "type": "Color",
+          "config": {
+            "label": "Skateboard Bolt Color",
+            "placeholder": ""
+          }
         }
       },
       "items": {}

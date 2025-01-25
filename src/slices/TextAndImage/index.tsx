@@ -45,6 +45,7 @@ export default function TextAndImage({ slice, index }: TextAndImageProps): JSX.E
           )}
         >
           <SlideIn>
+            ``
             <Heading size="lg" as="h2">
               <PrismicText field={slice.primary.heading} />
             </Heading>
