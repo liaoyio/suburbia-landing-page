@@ -5,6 +5,7 @@ import { Bounded } from '@/components/Bounded'
 import { ButtonLink } from '@/components/ButtonLink'
 import { Heading } from '@/components/Heading'
 import { ParallaxImage } from './ParallaxImage'
+import { SlideIn } from "@/components/SlideIn";
 
 import type { Content } from '@prismicio/client'
 import type { SliceComponentProps } from '@prismicio/react'
@@ -43,22 +44,24 @@ export default function TextAndImage({ slice, index }: TextAndImageProps): JSX.E
             slice.variation === 'imageOnLeft' && 'md:order-2',
           )}
         >
-
-          <Heading size="lg" as="h2">
-            <PrismicText field={slice.primary.heading} />
-          </Heading>
-
-          <div className="max-w-md text-lg leading-relaxed">
-            <PrismicRichText field={slice.primary.body} />
-          </div>
-
-          <ButtonLink
-            field={slice.primary.button}
-            color={theme === 'Lime' ? 'orange' : 'lime'}
-          >
-            {slice.primary.button.text}
-          </ButtonLink>
-
+          <SlideIn>
+            <Heading size="lg" as="h2">
+              <PrismicText field={slice.primary.heading} />
+            </Heading>
+          </SlideIn>
+          <SlideIn>
+            <div className="max-w-md text-lg leading-relaxed">
+              <PrismicRichText field={slice.primary.body} />
+            </div>
+          </SlideIn>
+          <SlideIn>
+            <ButtonLink
+              field={slice.primary.button}
+              color={theme === "Lime" ? "orange" : "lime"}
+            >
+              {slice.primary.button.text}
+            </ButtonLink>
+          </SlideIn>
         </div>
 
         <ParallaxImage

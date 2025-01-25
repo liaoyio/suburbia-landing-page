@@ -5,6 +5,7 @@ import { Content } from "@prismicio/client";
 import { PrismicText, SliceComponentProps } from "@prismicio/react";
 import { Fragment, JSX } from "react";
 import { Skater } from "./Skater";
+import { SlideIn } from "@/components/SlideIn";
 
 /** Props for `TeamGrid`. */
 export type TeamGridProps = SliceComponentProps<Content.TeamGridSlice>;
@@ -19,15 +20,19 @@ export default async function TeamGrid ({ slice }: TeamGridProps): Promise<JSX.E
       data-slice-variation={slice.variation}
       className="bg-texture bg-brand-navy"
     >
+      <SlideIn>
         <Heading as="h2" size="lg" className="mb-8 text-center text-white">
           <PrismicText field={slice.primary.heading} />
         </Heading>
+      </SlideIn>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
         {skaters.map((skater, index) => (
           <Fragment key={index}>
             {skater.data.first_name && (
-              <Skater index={index} skater={skater} />
+              <SlideIn>
+                <Skater index={index} skater={skater} />
+              </SlideIn>
             )}
           </Fragment>
         ))}
