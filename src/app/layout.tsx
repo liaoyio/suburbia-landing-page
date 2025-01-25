@@ -5,6 +5,7 @@ import { SVGFilters } from '@/components/SVGFilters'
 // See: https://nextjs.org/docs/app/building-your-application/optimizing/fonts#local-fonts
 import { Bowlby_One_SC, DM_Mono } from 'next/font/google'
 import '@/styles/globals.css'
+import { Footer } from '@/components/Footer'
 
 const bowlby = Bowlby_One_SC({
   subsets: ['latin'],
@@ -37,6 +38,7 @@ export default function RootLayout({
       >
         <Header />
         <main>{children}</main>
+        <Footer />
         <SVGFilters />
       </body>
     </html>
