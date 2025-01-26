@@ -229,6 +229,7 @@ function Scene({ deckTextureURL, wheelTextureURL, truckColor, boltColor }: Props
         <Html
           wrapperClass="pointer-events-none"
           transform
+          // MARK: 防止两侧线条动画遮住滑板
           zIndexRange={[1, 0]}
           occlude="blending"
         >

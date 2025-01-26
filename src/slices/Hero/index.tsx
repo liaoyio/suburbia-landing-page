@@ -3,10 +3,9 @@ import { Bounded } from '@/components/Bounded'
 
 import { ButtonLink } from '@/components/ButtonLink'
 import { Heading } from '@/components/Heading'
-import { TallLogo, WideLogo } from '@/components/icons'
+import { TallLogo, WideLogo } from '@/components/icons/client'
 import { asImageSrc, type Content } from '@prismicio/client'
 import { PrismicRichText, PrismicText, type SliceComponentProps } from '@prismicio/react'
-import clsx from 'clsx'
 import { InteractiveSkateboard } from './InteractiveSkateboard'
 
 const DEFAULT_DECK_TEXTURE = '/skateboard/Deck.webp'
@@ -40,11 +39,8 @@ export default function Hero({ slice }: HeroProps): JSX.Element {
 
       {/* 背景文字 Logo [Suburbia Skate] */}
       <div className="absolute inset-0 flex items-center pt-20">
-        <WideLogo className={
-          clsx('w-full text-brand-purple hidden opacity-20 mix-blend-multiply lg:block', 'animate-squiggle')
-        }
-        />
-        <TallLogo className={clsx('w-full text-brand-purple opacity-20 mix-blend-multiply lg:hidden', 'animate-squiggle')} />
+        <WideLogo className="hidden lg:block" />
+        <TallLogo className="lg:hidden" />
       </div>
 
       {/* Tailwind 任意值: https://v3.tailwindcss.com/docs/grid-template-rows#arbitrary-values */}

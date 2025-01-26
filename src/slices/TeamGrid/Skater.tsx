@@ -1,6 +1,6 @@
 import type { Content } from '@prismicio/client'
 import { ButtonLink } from '@/components/ButtonLink'
-import { SkaterScribble } from '@/components/icons'
+import { SkaterScribble } from '@/components/icons/client'
 import { PrismicNextImage } from '@prismicio/next'
 import clsx from 'clsx'
 

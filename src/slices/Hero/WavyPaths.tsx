@@ -1,5 +1,6 @@
 'use client'
 
+import { useIsSafari } from '@/hooks/useIsSafari'
 import { useGSAP } from '@gsap/react'
 import clsx from 'clsx'
 import gsap from 'gsap'
@@ -9,6 +10,7 @@ gsap.registerPlugin(useGSAP)
 
 /** 滑板两侧流动漩涡曲线动画 */
 export function WavyPaths() {
+  const isSafari = useIsSafari(true)
   const root = useRef<SVGSVGElement>(null)
 
   // See: https://gsap.com/resources/React
@@ -36,7 +38,7 @@ export function WavyPaths() {
       viewBox="0 0 1242 308"
       width={1242}
       height={308}
-      className={clsx('pointer-events-none text-zinc-600')}
+      className={clsx('pointer-events-none text-zinc-600', !isSafari && 'animate-squiggle')}
     >
       <path
         stroke="currentColor"
