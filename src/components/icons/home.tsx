@@ -55,4 +55,3 @@ export function Scribble({ color, ...props }: SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
-

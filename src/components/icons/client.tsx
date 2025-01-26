@@ -54,7 +54,7 @@ export function SkaterScribble(props: SVGProps<SVGSVGElement>) {
     >
       <path
 
-        className={clsx( "skater-scribble-path", !isSafari && "animate-squiggle" )}
+        className={clsx('skater-scribble-path', !isSafari && 'animate-squiggle')}
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"

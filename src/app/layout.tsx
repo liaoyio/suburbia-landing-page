@@ -1,6 +1,4 @@
 import type { Metadata } from 'next'
-import { Footer } from '@/components/Footer'
-import { Header } from '@/components/Header'
 import { SVGFilters } from '@/components/SVGFilters'
 // TODO 自定义字体
 // See: https://nextjs.org/docs/app/building-your-application/optimizing/fonts#local-fonts
@@ -36,9 +34,7 @@ export default function RootLayout({
       <body
         className={`${bowlby.variable} ${dmMono.variable} antialiased font-mono font-medium text-zinc-800`}
       >
-        <Header />
         <main>{children}</main>
-        <Footer />
         <SVGFilters />
       </body>
     </html>
