@@ -4,6 +4,133 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Item in *Board Customizer → Wheels*
+ */
+export interface BoardCustomizerDocumentDataWheelsItem {
+  /**
+   * Texture field in *Board Customizer → Wheels*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: board_customizer.wheels[].texture
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  texture: prismic.ImageField<never>;
+
+  /**
+   * UID field in *Board Customizer → Wheels*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: board_customizer.wheels[].uid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uid: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Board Customizer → Decks*
+ */
+export interface BoardCustomizerDocumentDataDecksItem {
+  /**
+   * Texture field in *Board Customizer → Decks*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: board_customizer.decks[].texture
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  texture: prismic.ImageField<never>;
+
+  /**
+   * UID field in *Board Customizer → Decks*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: board_customizer.decks[].uid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uid: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Board Customizer → Metals*
+ */
+export interface BoardCustomizerDocumentDataMetalsItem {
+  /**
+   * Color field in *Board Customizer → Metals*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: board_customizer.metals[].color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  color: prismic.ColorField;
+
+  /**
+   * UID field in *Board Customizer → Metals*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: board_customizer.metals[].uid
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  uid: prismic.KeyTextField;
+}
+
+/**
+ * Content for Board Customizer documents
+ */
+interface BoardCustomizerDocumentData {
+  /**
+   * Wheels field in *Board Customizer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: board_customizer.wheels[]
+   * - **Tab**: Wheels
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  wheels: prismic.GroupField<
+    Simplify<BoardCustomizerDocumentDataWheelsItem>
+  > /**
+   * Decks field in *Board Customizer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: board_customizer.decks[]
+   * - **Tab**: Decks
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */;
+  decks: prismic.GroupField<Simplify<BoardCustomizerDocumentDataDecksItem>> /**
+   * Metals field in *Board Customizer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: board_customizer.metals[]
+   * - **Tab**: Metals
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */;
+  metals: prismic.GroupField<Simplify<BoardCustomizerDocumentDataMetalsItem>>;
+}
+
+/**
+ * Board Customizer document from Prismic
+ *
+ * - **API ID**: `board_customizer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BoardCustomizerDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<BoardCustomizerDocumentData>,
+    "board_customizer",
+    Lang
+  >;
+
 type HomepageDocumentDataSlicesSlice =
   | TeamGridSlice
   | VideoBlockSlice
@@ -343,6 +470,7 @@ export type SkaterDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<SkaterDocumentData>, "skater", Lang>;
 
 export type AllDocumentTypes =
+  | BoardCustomizerDocument
   | HomepageDocument
   | SettingsDocument
   | SkateboardDocument
@@ -818,6 +946,11 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      BoardCustomizerDocument,
+      BoardCustomizerDocumentData,
+      BoardCustomizerDocumentDataWheelsItem,
+      BoardCustomizerDocumentDataDecksItem,
+      BoardCustomizerDocumentDataMetalsItem,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
