@@ -20,6 +20,7 @@ export default async function TeamGrid({ slice }: TeamGridProps): Promise<JSX.El
   const skaters = await client.getAllByType('skater')
   return (
     <Bounded
+      id={slice.slice_type}
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="bg-texture bg-brand-navy"

@@ -3,6 +3,7 @@ import clsx from 'clsx'
 
 interface BoundedProps {
   as?: ElementType
+  id?: string
   className?: string
   style?: CSSProperties
   children: ReactNode

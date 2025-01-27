@@ -8,6 +8,7 @@ import Link from 'next/link'
 import React from 'react'
 import { CustomizerControlsProvider } from './context'
 import Controls from './Controls'
+import Loading from './Loading'
 import Preview from './Preview'
 
 interface SearchParams {
@@ -81,6 +82,7 @@ export default async function Page(props: Props) {
           </ButtonLink>
         </div>
       </CustomizerControlsProvider>
+      <Loading />
     </div>
   )
 }

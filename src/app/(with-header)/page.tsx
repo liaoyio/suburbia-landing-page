@@ -74,6 +74,7 @@ function bundleTextAndImageSlices(
     if (bundle?.slice_type === 'text_and_image_bundle') {
       bundle.slices.push(slice)
     }
+
     else {
       res.push({
         id: `${slice.id}-bundle`,

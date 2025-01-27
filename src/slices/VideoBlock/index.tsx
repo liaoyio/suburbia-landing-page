@@ -17,6 +17,7 @@ export type VideoBlockProps = SliceComponentProps<Content.VideoBlockSlice>
 export default function VideoBlock({ slice }: VideoBlockProps): JSX.Element {
   return (
     <Bounded
+      id={slice.slice_type}
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       className="bg-texture bg-zinc-900"
