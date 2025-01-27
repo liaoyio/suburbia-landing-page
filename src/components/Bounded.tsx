@@ -1,8 +1,8 @@
-import type { CSSProperties, ElementType, ReactNode } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 import clsx from 'clsx'
 
 interface BoundedProps {
-  as?: ElementType
+  as: 'main' | 'div' | 'section' // 使用 ElementType 报错
   id?: string
   className?: string
   style?: CSSProperties
