@@ -251,11 +251,11 @@ interface SettingsDocumentData {
    *
    * - **Field Type**: Text
    * - **Placeholder**: Meta Desciption
-   * - **API ID Path**: settings.meta_desciption
+   * - **API ID Path**: settings.meta_description
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  meta_desciption: prismic.KeyTextField;
+  meta_description: prismic.KeyTextField;
 
   /**
    * Fallback OG Image  field in *Settings*

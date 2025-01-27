@@ -13,7 +13,7 @@
           "placeholder": "Site Title"
         }
       },
-      "meta_desciption": {
+      "meta_description": {
         "type": "Text",
         "config": {
           "label": "Meta Desciption",
