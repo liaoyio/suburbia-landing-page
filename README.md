@@ -1,8 +1,14 @@
-# Suburbia Skateboards
+# 🛹 Suburbia Skateboards
 
-```
-🛹 使用 Next.js 15、GSAP、Prismic、Three.js、Tailwind 和 TypeScript 构建 3D 滑板官网！
-```
+**使用 Next.js 15、GSAP、Prismic、Three.js、Tailwind 和 TypeScript 构建 3D 滑板官网！**
+
+<br/>
+
+![](./public/build-preview.png)
+
+<br/>
+
+![](./public/preview.png)
 
 ## 特性
 
