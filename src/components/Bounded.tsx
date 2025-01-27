@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from 'react'
 import clsx from 'clsx'
 
 interface BoundedProps {
-  as: 'main' | 'div' | 'section' // 使用 ElementType 报错
+  as: 'main' | 'div' | 'section' | 'nav'
   id?: string
   className?: string
   style?: CSSProperties
