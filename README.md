@@ -28,6 +28,8 @@
 
 ## Notes
 
+> Youtube 视频教程 🔗： https://www.youtube.com/watch?v=LBOhVng5rk8
+
 ### 使用 Prismic
 
 ![](./public/Notes/start1.png)
@@ -151,3 +153,11 @@ export default {
 ### 滑板定制页面
 
 ![](./public/Notes/build-page.png)
+
+#### 部署
+
+![](./public/Notes/deploy-01.png)
+
+<br/>
+
+![](./public/Notes/deploy-02.png)
